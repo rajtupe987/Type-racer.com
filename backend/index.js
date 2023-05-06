@@ -4,8 +4,9 @@ app.use(express.json())
 const {connect}=require("./database/db");
 const {router}=require("./controller/user.rout")
 const socketio=require("socket.io")
+const {authenticate}=require("./middleware/auth")
 
-app.get("/",(req,res)=>{
+app.get("/",authenticate,(req,res)=>{
     res.send("wellcome")
 })
 app.use("/user",router)
