@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+            body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 80%;
+            margin: auto;
+            
+        }
+        #banner{
+            height:150px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            gap: 20px;
+            
+        }
+        p{
+            font-size: 18px;
+            line-height: 19px;
+            color:rgb(114, 114, 124);
+        }
+        h3{
+            font-size: 25px;
+            color: cornflowerblue;
+        }
+
+        h4{
+            font-size: 16px;
+            color: cornflowerblue;
+            line-height: 23px;
+        }
+#img{
+    height: 100px;
+}
+nav{
+    width: 100%;
+    margin: auto;
+}
+  #box{
+    
+    width: 100%;
+    margin: auto;
+    margin-top:50px ;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+  }  
+  #box>div>img{
+    height: 300px;
+    width: 350px;
+  }    
+  #box>div>div{background-color: aqua;
+width: 150px;
+
+
+}
+#box>div{
+    display: grid;
+    gap: 5px;
+    
+}
+   
+
+@media screen and (max-width: 1200px) {
+
+    #banner{
+            height:200px;
+            width: 100%;
+          
+         flex-direction: column;
+           margin-top: 1px;
+            
+            gap: 20px;
+            text-align: center;
+        }
+       
+
+        #img{
+    height: 80px;
+
+
+}
+#m{
+    width: 100%;
+    margin: auto;
+    
+    display: grid;
+    justify-content: center;
+}
+       p{
+            font-size: 8px;
+            line-height: 13px;
+            color:rgb(114, 114, 124);
+        }
+        h3{
+            font-size: 20px;
+            color: cornflowerblue;
+        }
+
+        h4{
+            font-size: 16px;
+            color: cornflowerblue;
+            line-height: 23px;
+        }
+
+        #box{
+    
+    margin-top:30px ;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 10px;
+    
+  }  
+  #box>div>img{
+    height: 300px;
+    width: 100%;
+  }    
+  #box>div>div{background-color: aqua;
+width: 150px;
+
+
+}
+#box>div{
+    display: grid;
+    gap: 5px;
+    
+}
+
+}
+   
+   </style>
+    
+</head>
+<body>
+
+    <div id="banner">
+
+        <div id="m">
+            <img src="./image/logo.jpeg" alt="" id="img">
+        </div>
+        <div>
+            <h3>QuickRacer Updates</h3>
+            <p>Latest updates, news and discussion about TypeRacer, the first online typing game!</p>
+        </div>
+    </div>
+    <hr>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="#">Discord</a>
+              <a class="nav-link" href="#">Twitter</a>
+              <a class="nav-link" href="#">Facebook</a>
+              <a class="nav-link" href="#">YouTube</a>
+              <a class="nav-link" href="#">TR Data</a>
+              <a class="nav-link" href="#">TypingStats</a>
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+
+<div id="box">
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2023/04/04-28-2023-1682706598.png?resize=450%2C450&ssl=1" alt="">
+        <div>April 23,2023</div>
+        <h4>Top 10 Country Leaders</h3>
+    </div>
+
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2023/04/image.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>April 14,2023</div>
+        <h4>QuickRacer Spring 2023 Animal Avatars and New Cherry Blossom Desk Mat Mouse Pad!</h4>
+    </div>
+
+
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2022/11/11-28-2022-1669664206.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>NOV 28, 2022</div>
+        <h4>QuickRacer Facelift, Increased Ghosting Save Limits, TypingStats Holiday Event, Win Prizes and More!
+            </h3>
+    </div>
+
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2022/10/image.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>OCTOBER 31, 2022</div>
+        <h4>QuickRacer Facelift, Increased Ghosting Save Limits, TypingStats Holiday Event, Win Prizes and More!
+            </h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2022/09/TR_AG20_01.gif?resize=300%2C300&ssl=1" alt="">
+        <div>SEP 20, 2022
+            </div>
+        <h4>Addicting Games Turns 20! #AG20 New Avatars and Top 10 Free Games!</h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2022/09/KeeganT.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>SEP 9, 2022</div>
+        <h4>New Record: Typist KeeganT hits HALF A MILLION races total! (500,000 RACES)
+            </h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2022/08/typeracer-mug-2022.jpg?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>AUGUST 30, 2022</div>
+        <h4>Get a QuickRacer Mug for your desk! Official Merch Available! Premium Giveaway and More!
+            </h3>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2021/12/tr_winter_prizes_2021.jpg?resize=450%2C450&ssl=1" alt="">
+        <div>DEC 15, 2022</div>
+        <h4>
+            TypingStats Holiday Event 2022!</h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2021/10/tr-dictionary-mode-banner.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>OCTOBER 19, 2021</div>
+        <h4>OVER 100+ NEW QuickRacer Cars OUT NOW! Includes Free Country flags and Modern cars for premium and registered users!
+            </h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2021/08/dark-mode.jpg?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>OCTOBER 31, 2022</div>
+        <h4>
+            Avatar Selector and QoL Changes!</h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2019/10/index.jpg?resize=450%2C389&ssl=1" alt="">
+        <div> FEB 25, 2020</div>
+        <h4>New English Texts Added February 2020 & and Purge of Unpopular Texts
+           </h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2020/01/screen-shot-2020-01-06-at-10.00.46-pm.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>FEB 25, 2020</div>
+        <h4>
+            New English Texts Added February 2020 & and Purge of Unpopular Texts</h4>
+    </div>
+
+    
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2019/07/books.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>OCTOBER 19, 2021</div>
+        <h4>
+            OVER 100+ NEW QuickRacer Cars OUT NOW! Includes Free Country flags and Modern cars for premium and registered users!</h3>
+    </div>
+
+    <div>
+        <img src="https://i0.wp.com/i3.cpcache.com/product/334102252/grungy_typeracer_jersey.jpg?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>OCTOBER 19, 2021</div>
+        <h4>
+            Avatar Selector and QoL Changes!
+    </div>
+
+    <div>
+        <img src="https://i0.wp.com/blog.typeracer.com/wp-content/uploads/2017/10/screen-shot-2017-10-15-at-2-29-01-pm.png?resize=450%2C450&ssl=1&crop=1" alt="">
+        <div>OCTOBER 19, 2021</div>
+        <h4>
+            QuickRacer Spring 2023 Animal Avatars and New Cherry Blossom Desk Mat Mouse Pad!</h3>
+    </div>
+
+    
+</div>
+<br>
+<hr>
+<center>
+<p>Powered by WordPress.com.</p>
+</center>
+</body>
+</html>
