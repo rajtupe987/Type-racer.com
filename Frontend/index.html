@@ -44,7 +44,7 @@
                         <p id="waitandjoin">The race is about to start!</p>
                     </div>
                     <div>
-                        <p id="timerstart">90</p>
+                        <p id="timerstart">30</p>
                     </div>
                 </div>
 
@@ -218,9 +218,11 @@
 
 
     function MakesetTimeintervalreverse1sec() {
-        let timeleft = 30;
+        raceagainbtn.addEventListener("click",(event)=>{
+            let timeleft = 30;
         let downloadTimer = setInterval(function () {
             if (timeleft <= 0) {
+                alert("Finish")
                 clearInterval(downloadTimer);
                 document.getElementById("timerstart").innerHTML = "GO";
 
@@ -230,6 +232,8 @@
             }
             timeleft -= 1;
         }, 1000);
+        })
+        
     }
 
 
@@ -308,7 +312,7 @@
     });
 
     function MakestartTimeIntervel1sec() {
-        let timeleft = 90;
+        let timeleft = 30;
         let downloadTimer = setInterval(function () {
             if (timeleft <= 0) {
                 socket.emit("timeleft", { timeleft });
@@ -409,7 +413,7 @@
             console.log(element);
             carinsideit.innerHTML += `<div class="car">
                 <span id= onlyvp${element.id} class="usernamehere">${element.username}</span>
-                <img id=${element.id} src="https://tse4.mm.bing.net/th?id=OIP.oO33SYyCF2T5A8i1He_DKAHaCQ&pid=Api&P=0"
+                <img id=${element.id} src="https://static.vecteezy.com/system/resources/thumbnails/008/459/861/small/red-cartoon-car-design-ready-for-2d-animation-free-vector.jpg"
                             width="100"> <hr> <span class="speedherena" id=speed${element.id}></span></div>`
         })
         console.log(data);
@@ -435,7 +439,7 @@
         let snsnsn = document.getElementById(`speed${data.id}`);
         snsnsn.innerHTML = `${wpm} wpm`;
 
-        if (data.wordCount === 4) {
+        if (data.wordCount > 5) {
             let userhere20 = document.getElementById(`onlyvp${data.id}`)
             userhere20.innerHTML = `${data.username}'s position ${++count}`
         }

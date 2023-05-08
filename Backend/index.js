@@ -39,14 +39,12 @@ const io = socketio(expressServer);
 
 // here is my ranodom paragraph
 let para = [
-  "So, I was essentially a backbencher or some kind ofoutcast "
+  "The train leaves every morning at 8AM.",
+  "Tomorrow early morning first I go to morning walk.",
+  "I and my sister dont see each other anymore."
 ];
-// So, I was essentially a backbencher or some kind of outcast there. Feeling a bit dejected, I wanted to prove something my worth to them. So, I started to wait for an opportunity.
-function myFunction() {
-  let random = Math.floor(Math.random() * para.length);
-  return random;
-}
 
+ 
 //on connect
 let count = 0;
 let totalWords = 0;
@@ -83,7 +81,8 @@ io.on("connection", (socket) => {
   });
 
   //emitting the paragraph
-  let myParagraph = para[0];
+  let random = Math.floor(Math.random() * para.length);
+  let myParagraph = para[random];
   socket.emit("thePara", myParagraph);
 
   //recieving the typed text from client
@@ -105,11 +104,8 @@ io.on("connection", (socket) => {
       if (typedText[typedText.length - 1] == " ") {
         let user = update_word_function(socket.id, typedText);
         console.log(user);
-        console.log(user[0])
-        io.to(user[0].roomvalue).emit("user_data",
-          user[0],
-
-        );
+         console.log(user[0])
+         io.to(user[0].roomvalue).emit("user_data",user[0]);
       }
       // console.log({ typedText, keyCode });
       socket.emit("typing-update", {
