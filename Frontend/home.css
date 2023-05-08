@@ -9,9 +9,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: linear-gradient(to right, #ffffff, #dfeef9);
 }
 .main-bg {
-  position: absolute;
+  /* position: absolute; */
   /* background-image: url("images/background-img.jpg"); */
   background: linear-gradient(
       to bottom,
@@ -21,13 +22,13 @@
     url(images/background-img.jpg);
   background-size: cover;
   width: 100%;
-  height: 85%;
+  /* height: 85%; */
   opacity: 0.1;
-  top: 65;
+  top: 55px;
 }
 button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(227, 221, 221, 0.3) 0px 19px 38px,
+    rgba(211, 183, 183, 0.22) 0px 15px 12px;
   transform: translateY(-5px);
 }
 #navbar {
@@ -65,6 +66,10 @@ button:hover {
   font-size: 19px;
   font-weight: 600;
   color: #fff;
+}
+.nav-pages ul a {
+  text-decoration: none;
+  color: white;
 }
 .nav-buttons {
   width: 46%;
@@ -106,7 +111,7 @@ button:hover {
   background-color: #ffd71f;
   color: #005894;
 }
-.nav-buttons .nav_btn_div button:nth-child(2) {
+.nav-buttons .nav_btn_div a button:nth-child(2) {
   background-color: green;
   color: #fff;
 }

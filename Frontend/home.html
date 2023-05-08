@@ -22,16 +22,9 @@
           <div class="nav-pages">
             <ul>
               <li>Pit shops</li>
-
               <li>Updates</li>
-      
-
-              <li><a href="./update.html"> Updates</a></li>
               <li>Discord</li>
-
-     
-              <li>  <a href="./about.html">About</a></li> 
-
+              <li>About</li>
               <li>Merch</li>
             </ul>
           </div>
@@ -41,8 +34,12 @@
               <img src="images/navimage.svg" alt="img" />
             </div>
             <div class="nav_btn_div">
-              <button class="nav-btn">CREATE ACCOUNT</button>
-              <button class="nav-btn">SIGNUP</button>
+              <a href="./signup.html"
+                ><button class="nav-btn">CREATE ACCOUNT</button></a
+              >
+              <a href="./login.html"
+                ><button class="nav-btn" id="loginText">LOGIN</button></a
+              >
               <button class="nav-btn">0 WPM</button>
               <button class="nav-btn">0 RACES</button>
             </div>
@@ -92,14 +89,11 @@
             <div class="bg-car1"></div>
           </div>
           <div class="two-div">
-
             <h3>Chat with friends</h3>
             <p>Create your own chatbox and chat with friends</p>
-            <a href="./chat.html"><button class="btn2">Create Chat</button></a>
-
-           
-            <button class="btn2">Create Racetrack</button>
-
+            <a href="../Backend/chat.html"
+              ><button class="btn2">Create Chat</button></a
+            >
             <div class="bg-car2"></div>
           </div>
         </div>
@@ -138,7 +132,6 @@
           </div>
         </div>
       </section>
-
       <!-- .. Mid Div ... -->
 
       <!-- Footer start -->
@@ -179,4 +172,17 @@
       </section>
     </div>
   </body>
+
+  <script>
+    let loginText = document.getElementById("loginText");
+    if (localStorage.getItem("userName") === "") {
+      loginText.textContent = "LOGIN";
+    } else {
+      loginText.textContent = localStorage.getItem("userName", username);
+      loginText.style.color = "white";
+      loginText.style.fontWeight = "900";
+      loginText.style.backgroundColor = "green";
+      loginText.textContent = loginText.textContent.toUpperCase();
+    }
+  </script>
 </html>

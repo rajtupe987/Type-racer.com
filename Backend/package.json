@@ -1,11 +1,11 @@
 {
-  "name": "Backend",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "app": "nodemon Index.js"
+    "test": "nodemon server.js",
+    "app": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

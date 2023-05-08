@@ -1,67 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.css" />
+    <title>Login</title>
     <style>
-        body{
-            font-family: "Nunito Sans", sans-serif;
-            
-        }
-form{
-    width: 20%;
-    margin: auto;
-margin-top: 100px;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-    gap: 20px;
+      body {
+        font-family: "Nunito Sans", sans-serif;
+      }
+      form {
+        width: 20%;
+        margin: auto;
+        margin-top: 100px;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        gap: 20px;
+        color: #005894;
+      }
+      input[type="text"],
+      input[type="password"] {
+        border: none;
+        border-bottom: 1px solid;
+        padding: 10px;
+      }
+      #login_Submit {
+        border: none;
+        padding: 10px;
+        color: #005894;
+        background-color: aquamarine;
+      }
 
-    
-    color: rgb(0, 255, 110) ;
+      #logoutBtn {
+        border: none;
+        padding: 10px;
+        color: #005894;
+        background-color: aquamarine;
+      }
 
-
-}
-input[type=text],input[type=password]{
-    border: none;
-    border-bottom: 1px solid;
-    padding: 10px;
-}
-input[type=submit]{
-    border: none;
-    padding: 10px;
-
-background-color: rgb(172, 190, 184);
-color: rgb(0, 255, 110) ;
-
-background-color: aquamarine;
-
-}
-
-p{
-    text-align: center;
-    color: cornflowerblue;
-}
+      p {
+        text-align: center;
+        color: cornflowerblue;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <section id="navbar">
+      <nav>
+        <div class="website-logo">
+          <a href="./home.html"
+            ><img src="images/Quicktyper.jpeg" alt="img"
+          /></a>
+        </div>
+        <div class="nav-pages">
+          <ul>
+            <li>Pit shops</li>
+            <li><a href="./update.html"> Updates</a></li>
+            <li>Discord</li>
+            <li><a href="./about.html">About</a></li>
+            <li>Merch</li>
+          </ul>
+        </div>
 
+        <div class="nav-buttons">
+          <div class="nav_button_img">
+            <img src="images/navimage.svg" alt="img" />
+          </div>
+          <div class="nav_btn_div">
+            <a href="./signup.html"
+              ><button class="nav-btn">CREATE ACCOUNT</button></a
+            >
+            <a href="./login.html"
+              ><button class="nav-btn" id="loginText">SINGIN</button></a
+            >
+            <button class="nav-btn">0 WPM</button>
+            <button class="nav-btn">0 RACES</button>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <!-- Navbar End -->
     <form action="" id="form">
-<p>Sign-in</p>
-username: <input type="text" id="email">
+      <p>Sign-in</p>
+      username: <input type="text" id="username" />
 
-password: <input type="password" id="password">
-<br>
-<input type="submit" value="sign in">
-
+      password: <input type="password" id="password" />
+      <br />
+      <button id="login_Submit">Submit</button>
+      <button id="logoutBtn">Logout</button>
     </form>
-    
-</body>
+  </body>
 </html>
+<script>
+  // ......................button .........................
+  let loginText = document.getElementById("loginText");
+  if (localStorage.getItem("userName") === "") {
+    loginText.textContent = "LOGIN";
+  } else {
+    loginText.textContent = localStorage.getItem("userName", username);
+    loginText.style.color = "white";
+    loginText.style.fontWeight = "900";
+    loginText.style.backgroundColor = "green";
+    loginText.textContent = loginText.textContent.toUpperCase();
+  }
 
+  // LOGIN USER
+  let login_Submit = document.getElementById("login_Submit");
 
+  login_Submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    let payload = {
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+    };
+
+    fetch("http://localhost:8080/user/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("res=", res);
+        let tokenData = res.token.split(".")[1];
+        let decodedTokenData = atob(tokenData);
+        let userData = JSON.parse(decodedTokenData);
+
+        localStorage.setItem("userName", userData.username);
+        alert("User login Successfully");
+        window.location.href = "home.html";
+      })
+      .catch((err) => console.log(err));
+  });
+
+  // ......... LOGOUT .....................
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    fetch("http://localhost:8080/user/logout", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("res=", res);
+        localStorage.setItem("userName", "");
+        alert("Logout Successful, Please login");
+        window.location.href = "home.html";
+      })
+      .catch((err) => console.log(err));
+  });
+</script>
