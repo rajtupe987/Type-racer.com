@@ -1,69 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-      body{
-            font-family: "Nunito Sans", sans-serif;
-        }
-form{
-    width: 30%;
-    margin: auto;
-margin-top: 30px;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-    gap: 20px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.css" />
+    <title>Sign Up</title>
+    <style>
+      body {
+        font-family: "Nunito Sans", sans-serif;
+      }
+      form {
+        width: 30%;
+        margin: auto;
+        margin-top: 30px;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        gap: 20px;
+        color: #005894;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        border: none;
+        border-bottom: 1px solid;
+        padding: 10px;
+      }
+      #submit {
+        border: none;
+        padding: 10px;
+        background-color: rgb(172, 190, 184);
+        color: #005894;
+        background-color: aquamarine;
+      }
 
-    color: rgb(0, 255, 110) ;
+      p {
+        text-align: center;
+        color: cornflowerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="navbar">
+      <nav>
+        <div class="website-logo">
+          <a href="./home.html"
+            ><img src="images/Quicktyper.jpeg" alt="img"
+          /></a>
+        </div>
+        <div class="nav-pages">
+          <ul>
+            <li>Pit shops</li>
+            <li><a href="./update.html"> Updates</a></li>
+            <li>Discord</li>
+            <li><a href="./about.html">About</a></li>
+            <li>Merch</li>
+          </ul>
+        </div>
 
+        <div class="nav-buttons">
+          <div class="nav_button_img">
+            <img src="images/navimage.svg" alt="img" />
+          </div>
+          <div class="nav_btn_div">
+            <a href="./signup.html"
+              ><button class="nav-btn">CREATE ACCOUNT</button></a
+            >
+            <a href="./login.html"
+              ><button class="nav-btn" id="loginText">LOGIN</button></a
+            >
+            <button class="nav-btn">0 WPM</button>
+            <button class="nav-btn">0 RACES</button>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <!-- Navbar End -->
 
-}
-input[type=text],input[type=password],input[type=email]{
-    border: none;
-    border-bottom: 1px solid;
-    padding: 10px;
-}
-input[type=submit]{
-    border: none;
-    padding: 10px;
+    <form action="" id="form">
+      <p>Create an Account</p>
+      name: <input type="text" id="name" /> email:<input
+        type="email"
+        id="email"
+      />
+      username: <input type="text" id="username" /> password:
+      <input type="password" id="password" /> conformpassword:
+      <input type="password" id="conformpassword" />
 
-    background-color: rgb(172, 190, 184);
-color: rgb(0, 255, 110) ;
+      <button id="submit">Submit</button>
+    </form>
+  </body>
 
-background-color: aquamarine;
+  <script>
+    let signUpForm = document.getElementById("submit");
 
-}
-   
-p{
-    text-align: center;
-    color: cornflowerblue;
-}
+    signUpForm.addEventListener("click", (e) => {
+      e.preventDefault();
+      const payload = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        conformpassword: document.getElementById("conformpassword").value,
+      };
+      console.log("payll", payload);
+      fetch("http://localhost:8080/user/signup", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          // console.log(res)
+          alert("User Register Successfully");
+          window.location.href = "login.html";
+        })
+        .catch((err) => console.log(err));
+    });
 
-</style>
-</head>
-<body>
-    
-
-<form action="" id="form">
-    <p>Create an Account</p>
-name: <input type="text" id="name">
-email: <input type="email" id="email">
-
-username: <input type="text" id="username">
-
-password: <input type="password" id="password">
-
-repassword: <input type="password" id="repassword">
-
-<input type="submit" value="sign up">
-
-</form>
-
-</body>
-
+    let loginText = document.getElementById("loginText");
+    if (localStorage.getItem("userName") === "") {
+      loginText.textContent = "LOGIN";
+    } else {
+      loginText.textContent = localStorage.getItem("userName", username);
+      loginText.style.color = "white";
+      loginText.style.fontWeight = "900";
+      loginText.style.backgroundColor = "green";
+      loginText.textContent = loginText.textContent.toUpperCase();
+    }
+  </script>
 </html>
