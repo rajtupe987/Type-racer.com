@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <style>
+        body {
+            font-family: "Nunito Sans", sans-serif;
+        }
+
+        #main {
+
+            width: 100%;
+            margin: auto;
+            padding-top: 30px;
+            background-image: url('./images/Screenshot\ 2023-04-21\ at\ 9.59.56\ PM.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            height: 110px;
+            background-size: cover;
+        }
+
+        #nav {
+            display: flex;
+            margin-left: 50px;
+            gap: 50px;
+          font-size: 12px;
+            color:white;
+        }
+
+        #nav>img {
+            height: 50px;
+        }
+
+        #parent {
+            
+            margin-left: 40px;
+            
+            margin-top: 20PX;
+            border-top-left-radius: 20px;
+            background-color: white;
+            text-align: left;
+            padding: 15px;
+            border-top: 6px solid rgba(240, 152, 45, 0.884);
+            border-bottom: 6px solid rgba(245, 233, 233, 0.884);
+
+        }
+
+        #fd {
+            display: flex;
+        }
+
+        #about {
+            border: none;
+            border-right: 1px solid black;
+            width: 30%;
+            height: 400px;
+            padding: 10px;
+        }
+       p{
+            font-size: 13px;
+            line-height: 19px;
+            color:rgb(114, 114, 124);
+        }
+        h3{
+            font-size: 12px;
+            color: cornflowerblue;
+        }
+
+        #video {
+            
+            width: 70%;
+            padding-top: 30px;
+            padding-left: 20px;
+        }
+        #video>iframe{
+            height: 300px;
+            width: 60%;
+        }
+        #name{
+            display: flex;
+            gap: 500px;
+             
+            font-size: 12px;
+            color: cornflowerblue;
+            
+        }
+        #award{
+            display: flex;
+            gap: 20px;
+        }
+
+       #award>div{
+        border: none;
+        border-top: 1px solid black;
+        padding: 15px;
+        
+       }        
+        #aw{
+            height: 80px;
+        }
+
+        #a{
+            border: none;
+            border-right: 1px solid black;
+            width: 30%;
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+        }
+        #b{
+            border: none;
+            border-right: 1px solid black;
+            width: 43%;
+           
+        }
+        li{
+            font-size: 13px;
+            line-height: 22px;
+        }
+
+        #footer{
+            background-image: url('./images/Screenshot\ 2023-04-21\ at\ 9.59.56\ PM.svg');
+            height: 30px;
+            padding: 30PX;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        #footer>p{
+            color:white;
+        }
+        
+        @media screen and (max-width: 1200px) {
+           p{
+            font-size: 8px;
+            line-height: 10px;
+           }
+           #parent {
+            
+            
+            margin-left: 0px;
+            margin-top: 20PX;
+            border-top-left-radius: 0px;
+           
+        }
+
+        #about {
+           
+            width: 50%;
+           
+        }
+
+        #video {
+            
+            width: 50%;
+            
+        }
+          #video>iframe{
+            height: 300px;
+            width: 100%;
+        }
+          #name{
+            
+            gap:100px;
+            font-size: 12px;
+            color: cornflowerblue;
+          }
+
+
+           li{
+            font-size: 8px;
+            gap:5px;
+            line-height: 15px;
+        }
+
+          #footer{
+            background-image: url('./images/Screenshot\ 2023-04-21\ at\ 9.59.56\ PM.svg');
+            height: 25px;
+            padding: 20PX;
+            display: flex;
+            justify-content: center;
+            gap:6px;
+        }
+        #a{
+            display: grid;
+            gap:10px
+        }
+        #a>img{
+
+           width: 70px;
+        }
+        }
+
+         #nav{
+            gap: px;
+          
+        }
+
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="nav">
+            <img src="./images/Quicktyper.jpeg" alt="" srcset="">
+            <h4>About</h4>
+           <h4>Play the Game</h4>
+        </div>
+
+        <div id="parent">
+            <div id="fd">
+                <div id="about">
+
+                   <h3> About QuickTyper</h3>
+                <p>  The award-winning online typing competition, TypeRacer, allows people to race each-other by typing quotes from books, movies, and songs. It is the first multiplayer typing game on the web. <br><br>
+
+                   Since launching in March, 2008, millions of people from all over the globe have completed hundreds of millions of races on <a href="https://play.typeracer.com/" style="color: chocolate;">QuickTyper.com</a>  improving their typing speed by as much as 50 words-per-minute.<br><br>
+                   
+                   TypeRacer is available in 50 different languages.<br><br>
+                   
+                   <a href="https://play.typeracer.com/" style="color: chocolate;">QuickTyper School Edition</a> ,launched in 2010, aims to be the most fun educational product in the world. Designed for K-12 schools, it leverages the TypeRacer game concept which turns typing into a sport and makes learning fun.<br><br>
+                   
+
+<p>Ready to race?</p>
+
+<h3><a href="https://play.typeracer.com/" style="color: chocolate;">Get Started</a></h3>
+
+                   </p>
+                </div>
+
+                <div id="video">
+<h3>Video Walkthrough</h3>
+                    
+                        <iframe  src="https://www.youtube.com/embed/9znLhbkV1Gs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        
+                </div>
+
+                
+            </div>
+            <div id="name"><h4>Awards</h4>
+                <h4>Press Coverage</h4>
+            </div>
+
+            <div id="award">
+                <div id="a" ><img id="aw" src="https://data.typeracer.com/public/images/pc_mag.gif" alt="">
+                <div><img src="https://data.typeracer.com/public/images/mashup_awards.gif" alt="" srcset=""></div>
+                </div>
+                <div id="b">
+
+            <p>        QuickTyper has been covered in numerous online and print publications. Here is a selection of articles:  </p>
+
+
+
+
+
+
+            
+
+
+
+
+<ul>
+    <li><a href="https:" style="color: chocolate;">CNet's Webware bloga </a></li>
+        <li><a href="https:" style="color: chocolate;">Web 2.0 Pop Culture Blog by USA Today</a></li>
+            <li><a href="https:" style="color: chocolate;">New York Magazine</a></li>
+                <li><a href="https:" style="color: chocolate;">MTV Multiplayer Gaming Blog</a></li>
+                    <li><a href="https:" style="color: chocolate;">Gawker: Web 2.0 Pop Culture Blog</a></li>
+                    <li><a href="https:" style="color: chocolate;">Kotaku Gamer's Blogs</a></li>
+                    <li><a href="https:" style="color: chocolate;">GameCyte Gaming Blog</a></li>
+                    <li><a href="https:" style="color: chocolate;">GeekSugar: The "Geek is chic" blog</a></li>
+
+</ul>
+<p>Please contact press@QuickTyper.com for press inquiries.</p>
+
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+
+
+             <P>© 2008-2023 QuickTyper</P> <P> Home </P>  <P>Terms of Service</P>  <P>Privacy Policy</P>  <P>Contact</P>  <P>Change Theme</P> 
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
+
+
+<!-- about -->

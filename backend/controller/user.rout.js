@@ -3,10 +3,11 @@ const router=express.Router()
 const jwt=require("jsonwebtoken")
 const bcrypt=require("bcrypt")
 const {userModel}=require("../model/usermode");
-// require("dotenv").config()
-// const {authenticate}=require("../middleware/authenticate")
+
+const {authenticate}=require("../middleware/auth")
 const cookieparser=require("cookie-parser")
 router.use(cookieparser())
+const {blacklistModel}=require("../model/blacklistmodel")
 
 
 // ************ register section************************
@@ -89,42 +90,42 @@ router.post("/login",async(req,res)=>{
 })
 
 
-// // ************ refreshtoken ************
-// router.get("/refreshtoken",async(req,res)=>{
-//     const refreshtoken = req.cookies.refreshToken;
-//     try {
-//         const isblacklist= await blacklistModel.findOne({ refreshToken:refreshtoken})
-//         if(isblacklist) return res.status(400).send({msg:"Please login"})
-//         if(refreshtoken){
-//             const isvalid=jwt.verify(refreshtoken,process.env.retokenkey)
-//             console.log(isvalid)
-//             if(isvalid){
-//             const newaccesstoken=jwt.sign({email:isvalid.email,role:isvalid.role},process.env.tokenKey,{expiresIn:"3m"})
-//             res.cookie("accessToken",newaccesstoken,{maxAge:7*24*60*60*1000})
-//                 res.send(newaccesstoken)
-//             }
-//         }else{
-//             res.status(400).send({"message":"please login"})
-//         }
-//     } catch (error) {
-//         console.log(error)
-//         return res.send({"message":error.message})
-//     }
+// ************ refreshtoken ************
+router.get("/refreshtoken",async(req,res)=>{
+    const refreshtoken = req.cookies.refreshToken;
+    try {
+        const isblacklist= await blacklistModel.findOne({ refreshToken:refreshtoken})
+        if(isblacklist) return res.status(400).send({msg:"Please login"})
+        if(refreshtoken){
+            const isvalid=jwt.verify(refreshtoken,"shreyansh")
+            console.log(isvalid)
+            if(isvalid){
+            const newaccesstoken=jwt.sign({email:isvalid.email},"khirod",{expiresIn:"6h"})
+            res.cookie("accessToken",newaccesstoken,{maxAge:7*24*60*60*1000})
+                res.send(newaccesstoken)
+            }
+        }else{
+            res.status(400).send({"message":"please login"})
+        }
+    } catch (error) {
+        console.log(error)
+        return res.send({"message":error.message})
+    }
    
-// })
+})
 
-// // ****************logout***************
+// ****************logout***************
 
-// const {blacklistModel}=require("../model/blacklostedmodel")
-// router.get("/logout",authenticate,async(req,res)=>{
-//     const {accessToken,refreshToken}=req.cookies
-//     console.log(accessToken,refreshToken)
-//     const Baccesstoken= new blacklistModel({accessToken})
-//     await Baccesstoken.save()
-//     const Brefreshtoken= new blacklistModel({refreshToken})
-//     await Brefreshtoken.save()
-//     res.status(200).send({"message":"logout successfull"})
-// })
+
+router.get("/logout",authenticate,async(req,res)=>{
+    const {accessToken,refreshToken}=req.cookies
+    console.log(accessToken,refreshToken)
+    const Baccesstoken= new blacklistModel({accessToken})
+    await Baccesstoken.save()
+    const Brefreshtoken= new blacklistModel({refreshToken})
+    await Brefreshtoken.save()
+    res.status(200).send({"message":"logout successfull"})
+})
 
 
 
