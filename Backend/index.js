@@ -7,11 +7,11 @@ var randomId = require("random-id");
 const { User, update_word_function } = require("./user");
 let { users } = require("./user");
 let cors = require("cors");
-let { connection } = require("./db")
+let { connection } = require("./Database/db")
 
 app.use(cors());
 app.use(express.json());
-
+require("dotenv").config()
 
 
 // length of the id (default is 30)
@@ -20,7 +20,7 @@ var len = 10;
 // default is aA0 it has a chance for lowercased capitals and numbers
 var pattern = "aA0";
 
-const expressServer = app.listen(8080, async () => {
+const expressServer = app.listen(process.env.PORT, async () => {
   try {
     await connection
     console.log("connected to db");
@@ -28,15 +28,11 @@ const expressServer = app.listen(8080, async () => {
     console.log(error.message);
   }
 
-  console.log("server running");
+  console.log(`${process.env.PORT}`);
 });
 
 
 const io = socketio(expressServer);
-
-// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
-// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
-// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>//
 
 //my global array or clients
 // let arr = [];
