@@ -15,6 +15,8 @@ app.use(express.json());
 require("dotenv").config();
 app.use("/user", router);
 
+
+
 // length of the id (default is 30)
 var len = 10;
 // pattern to determin how the id will be generated
