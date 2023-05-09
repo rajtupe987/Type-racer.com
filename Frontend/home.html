@@ -17,14 +17,16 @@
       <section id="navbar">
         <nav>
           <div class="website-logo">
-            <img src="images/Quicktyper.jpeg" alt="img" />
+            <a href="./home.html"
+              ><img src="images/Quicktyper.jpeg" alt="img"
+            /></a>
           </div>
           <div class="nav-pages">
             <ul>
               <li>Pit shops</li>
-              <li>Updates</li>
+              <a href="./update.html"><li>Updates</li></a>
               <li>Discord</li>
-              <li>About</li>
+              <a href="./about.html"><li>About</li></a>
               <li>Merch</li>
             </ul>
           </div>
@@ -64,7 +66,7 @@
             </div>
           </div>
           <div class="race-btn">
-            <button>Enter a Typing Race</button>
+            <a href="./index.html"><button>Enter a Typing Race</button></a>
           </div>
           <div class="language">
             <div class="lan1">
@@ -106,7 +108,9 @@
             </p>
           </div>
           <div>
-            <button class="btn3">Create Your Account</button>
+            <a href="./signup.html"
+              ><button class="btn3">Create Your Account</button></a
+            >
           </div>
         </div>
         <div class="fourth_div first-div">
@@ -178,9 +182,10 @@
     if (localStorage.getItem("userName") === "") {
       loginText.textContent = "LOGIN";
     } else {
-      loginText.textContent = localStorage.getItem("userName", username);
+      loginText.textContent = localStorage.getItem("userName");
       loginText.style.color = "white";
       loginText.style.fontWeight = "900";
+      loginText.style.padding = "20px";
       loginText.style.backgroundColor = "green";
       loginText.textContent = loginText.textContent.toUpperCase();
     }
