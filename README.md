@@ -1,4 +1,4 @@
-# rural-snails-2863
+# TypeRacer Clone 
 
 
 <hr>
@@ -6,9 +6,9 @@
     <p>Quick type is an gaming website where an which user can crate a room an test his/her own typing speed.</p>
     <h2>Members/Contributors</h2>
     <p>Raj Tupe</p>
+    <p>Jivak Sute</p>
     <p>Shreyanch jain</p>
     <p>Mahesh Thombare</p>
-    <p>Jivak Sute</p>
     <p>Khirod Samal</p>
      <hr>
     <h3>Tech stack</h3>
