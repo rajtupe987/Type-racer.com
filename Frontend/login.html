@@ -1,99 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Login</title>
-    <style>
-      body {
-        font-family: "Nunito Sans", sans-serif;
-      }
-      form {
-        width: 20%;
-        margin: auto;
-        margin-top: 100px;
-        border: 1px solid red;
-        display: flex;
-        flex-direction: column;
-        padding: 50px;
-        gap: 20px;
-        color: #005894;
-      }
-      input[type="text"],
-      input[type="password"] {
-        border: none;
-        border-bottom: 1px solid;
-        padding: 10px;
-      }
-      #login_Submit {
-        border: none;
-        padding: 10px;
-        color: #005894;
-        background-color: aquamarine;
-      }
 
-      #logoutBtn {
-        border: none;
-        padding: 10px;
-        color: #005894;
-        background-color: aquamarine;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: "Nunito Sans", sans-serif;
+    }
 
-      p {
-        text-align: center;
-        color: cornflowerblue;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar Section -->
-    <section id="navbar">
-      <nav>
-        <div class="website-logo">
-          <a href="./index.html"
-            ><img src="images/Quicktyper.jpeg" alt="img"
-          /></a>
+    form {
+      width: 40%;
+      margin: auto;
+      margin-top: 100px;
+      border: 1px solid red;
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      gap: 20px;
+      color: #005894;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      border: none;
+      border-bottom: 1px solid;
+      padding: 10px;
+    }
+
+    #login_Submit {
+      border: none;
+      padding: 10px;
+      color: #005894;
+      background-color: aquamarine;
+    }
+
+    #logoutBtn {
+      border: none;
+      padding: 10px;
+      color: #005894;
+      background-color: aquamarine;
+    }
+
+    p {
+      text-align: center;
+      color: cornflowerblue;
+    }
+
+
+
+    .form_register {
+      display: block;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: var(--normal-font-size);
+      color: var(--text-color);
+      font-weight: 500;
+      transition: 0.5s;
+    }
+
+    .form_register:hover {
+      color: var(--first-color);
+      transition: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar Section -->
+  <section id="navbar">
+    <nav>
+      <div class="website-logo">
+        <a href="./index.html"><img src="images/Quicktyper.jpeg" alt="img" /></a>
+      </div>
+      <div class="nav-pages">
+        <ul>
+          <li>Pit shops</li>
+          <li><a href="./update.html"> Updates</a></li>
+          <li>Discord</li>
+          <li><a href="./about.html">About</a></li>
+          <li>Merch</li>
+        </ul>
+      </div>
+
+      <div class="nav-buttons">
+        <div class="nav_button_img">
+          <img src="images/navimage.svg" alt="img" />
         </div>
-        <div class="nav-pages">
+        <div class="nav_btn_div">
+          <a href="./signup.html"><button class="nav-btn">CREATE ACCOUNT</button></a>
+          <a href="./login.html"><button class="nav-btn" id="loginText">SINGIN</button></a>
+          <button class="nav-btn">0 WPM</button>
+          <button class="nav-btn">0 RACES</button>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- Navbar End -->
+  <form action="" id="form">
+    <p>Sign-in</p>
+    username: <input type="text" id="username" />
+
+    password: <input type="password" id="password" />
+    <br />
+
+    <a href="./signup.html" class="form_register">New user? Register now.</a>
+
+    <button id="login_Submit">Submit</button>
+    <button id="logoutBtn">Logout</button>
+  </form>
+
+
+  <!-- Footer start -->
+  <section id="footer-sec">
+    <footer>
+      <div class="foo1">
+        <div class="terms">
           <ul>
-            <li>Pit shops</li>
-            <li><a href="./update.html"> Updates</a></li>
-            <li>Discord</li>
-            <li><a href="./about.html">About</a></li>
-            <li>Merch</li>
+            <li>Home |</li>
+            <li>Terms of Service |</li>
+            <li>Privacy Policy |</li>
+            <li>Contact |</li>
+            <li>Contribute |</li>
+            <li>Keyboard Shortcut |</li>
+            <li>FAQ</li>
           </ul>
         </div>
-
-        <div class="nav-buttons">
-          <div class="nav_button_img">
-            <img src="images/navimage.svg" alt="img" />
-          </div>
-          <div class="nav_btn_div">
-            <a href="./signup.html"
-              ><button class="nav-btn">CREATE ACCOUNT</button></a
-            >
-            <a href="./login.html"
-              ><button class="nav-btn" id="loginText">SINGIN</button></a
-            >
-            <button class="nav-btn">0 WPM</button>
-            <button class="nav-btn">0 RACES</button>
-          </div>
+        <div class="inc">
+          <p>© 2008-2023 Addicting Games, Inc.</p>
         </div>
-      </nav>
-    </section>
-    <!-- Navbar End -->
-    <form action="" id="form">
-      <p>Sign-in</p>
-      username: <input type="text" id="username" />
+        <div class="social-med">
+          <img src="images/d1.svg" alt="d1" />
+          <img src="images/d2.svg" alt="d2" />
+          <img src="images/d3.svg" alt="d3" />
+          <img src="images/d4.svg" alt="d4" />
+          <img src="images/d5.svg" alt="d5" />
+        </div>
+      </div>
+      <div class="foo2">
+        <div class="ft-btn">
+          <button class="btn4">Change Theme</button>
+        </div>
+        <div class="add-gm">
+          <img src="images/add-game.png" alt="" />
+        </div>
+      </div>
+    </footer>
+</body>
 
-      password: <input type="password" id="password" />
-      <br />
-      <button id="login_Submit">Submit</button>
-      <button id="logoutBtn">Logout</button>
-    </form>
-  </body>
 </html>
 <script>
   // ......................button .........................
@@ -118,7 +176,7 @@
       password: document.getElementById("password").value,
     };
 
-    fetch("http://localhost:8080/user/login", {
+    fetch("https://rural-snails-2863.up.railway.app/user/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -127,17 +185,36 @@
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("res=", res);
         let tokenData = res.token.split(".")[1];
         let decodedTokenData = atob(tokenData);
         let userData = JSON.parse(decodedTokenData);
-
+        console.log(userData)
         localStorage.setItem("userName", userData.username);
-        alert("User login Successfully");
-        window.location.href = "index.html";
+
+        if (res) {
+          Swal.fire(
+            "User login Successfully",
+            '',
+            'success'
+          )
+
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 2000)
+
+        }
+
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>
+
+        Swal.fire(
+          "Invalid Credentials",
+          '',
+          'error'
+        ));
   });
+
+
 
   // ......... LOGOUT .....................
   const logoutBtn = document.getElementById("logoutBtn");
@@ -145,7 +222,7 @@
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:8080/user/logout", {
+    fetch("https://rural-snails-2863.up.railway.app/user/logout", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -153,11 +230,29 @@
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("res=", res);
         localStorage.setItem("userName", "");
-        alert("Logout Successful, Please login");
-        window.location.href = "index.html";
+        //alert("Logout Successful, Please login");
+        if (res) {
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 2000);
+
+          Swal.fire(
+            "Logout Successful, Please login",
+            '',
+            'success'
+          )
+
+        }
+
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>
+        Swal.fire(
+          "Error to logout",
+          '',
+          'error'
+        )
+
+      );
   });
 </script>
