@@ -13,7 +13,13 @@ let { router } = require("./Controller/user.rout");
 app.use(cors());
 app.use(express.json());
 require("dotenv").config();
+
+app.get("/",(req,res)=>{
+  res.send("WELCOME")
+})
+
 app.use("/user", router);
+
 
 // length of the id (default is 30)
 var len = 10;
@@ -26,10 +32,10 @@ const expressServer = app.listen(process.env.PORT, async () => {
     await connection;
     console.log("connected to db");
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
   }
 
-  console.log(`${process.env.PORT}`);
+  //console.log(`${process.env.PORT}`);
 });
 
 const io = socketio(expressServer);
@@ -53,7 +59,7 @@ io.on("connection", (socket) => {
 
   socket.on("username", ({ username }) => {
     var id = randomId(len, pattern);
-    console.log(id);
+    //console.log(id);
     socket.emit("roomno", id);
   });
   let Room;
@@ -85,7 +91,7 @@ io.on("connection", (socket) => {
 
   //recieving the typed text from client
   socket.on("typedText", ({ typedText }) => {
-    console.log(`person having id ${socket.id} is typing :`, typedText);
+    //console.log(`person having id ${socket.id} is typing :`, typedText);
 
     if (
       typedText[typedText.length - 1] == myParagraph[typedText.length - 1] &&
@@ -101,8 +107,8 @@ io.on("connection", (socket) => {
       }
       if (typedText[typedText.length - 1] == " ") {
         let user = update_word_function(socket.id, typedText);
-        console.log(user);
-        console.log(user[0]);
+        //console.log(user);
+        //console.log(user[0]);
         io.to(user[0].roomvalue).emit("user_data", user[0]);
       }
       // console.log({ typedText, keyCode });
@@ -127,7 +133,7 @@ io.on("connection", (socket) => {
   //disconnet
   socket.on("disconnect", () => {
     count -= 1;
-    console.log(`One user left, ${count} remaining!!`);
+    //console.log(`One user left, ${count} remaining!!`);
     io.emit("user count", count);
   });
 });

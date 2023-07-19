@@ -33,7 +33,7 @@ button:hover {
 }
 #navbar {
   width: 100%;
-  background-color: #005894;
+  background-color: #337ab7;
 }
 #navbar nav {
   display: flex;
@@ -88,7 +88,7 @@ button:hover {
   display: block;
   height: 80%;
   border-radius: 5px;
-  background-color: #239ab0;
+  background-color: #17a2b8;
 }
 .nav-buttons .nav_btn_div button {
   margin-left: 10px;
@@ -108,15 +108,15 @@ button:hover {
   transform: translateY(-5px);
 }
 .nav-buttons .nav_btn_div button:nth-child(1) {
-  background-color: #ffd71f;
+  background-color: #b4af97;
   color: #005894;
 }
 .nav-buttons .nav_btn_div a button:nth-child(2) {
-  background-color: green;
+  background-color: rgb(76, 145, 76);
   color: #fff;
 }
 .nav-buttons .nav_btn_div button:nth-child(3) {
-  background-color: #239ab0;
+  background-color: #75eaff;
   color: #fff;
   padding-left: 10px;
   padding-right: 10px;
@@ -267,7 +267,7 @@ p {
 }
 .two-div .btn2 {
   width: 50%;
-  background-color: #ff7c1c;
+  background-color: #fd7e14;
   font-size: 18px;
   font-weight: 600;
   color: #fff;

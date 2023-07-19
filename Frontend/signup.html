@@ -1,136 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Sign Up</title>
-    <style>
-      body {
-        font-family: "Nunito Sans", sans-serif;
-      }
-      form {
-        width: 30%;
-        margin: auto;
-        margin-top: 30px;
-        border: 1px solid red;
-        display: flex;
-        flex-direction: column;
-        padding: 50px;
-        gap: 20px;
-        color: #005894;
-      }
-      input[type="text"],
-      input[type="password"],
-      input[type="email"] {
-        border: none;
-        border-bottom: 1px solid;
-        padding: 10px;
-      }
-      #submit {
-        border: none;
-        padding: 10px;
-        background-color: rgb(172, 190, 184);
-        color: #005894;
-        background-color: aquamarine;
-      }
 
-      p {
-        text-align: center;
-        color: cornflowerblue;
-      }
-    </style>
-  </head>
-  <body>
-    <section id="navbar">
-      <nav>
-        <div class="website-logo">
-          <a href="./index.html"
-            ><img src="images/Quicktyper.jpeg" alt="img"
-          /></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: "Nunito Sans", sans-serif;
+    }
+
+    form {
+      width: 40%;
+      margin: auto;
+      margin-top: 30px;
+      border: 1px solid red;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      gap: 20px;
+      color: #005894;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      border: none;
+      border-bottom: 1px solid;
+      padding: 10px;
+    }
+
+    #submit {
+      border: none;
+      padding: 10px;
+      background-color: rgb(172, 190, 184);
+      color: #005894;
+      background-color: aquamarine;
+    }
+
+    p {
+      text-align: center;
+      color: cornflowerblue;
+    }
+
+    .form_social {
+      text-align: center;
+    }
+
+    .form_social-text {
+      display: block;
+      text-decoration: none;
+      font-size: var(--normal-font-size);
+      margin-bottom: 1rem;
+    }
+
+    .form_social-text>a {
+      display: block;
+      font-size: var(--normal-font-size);
+      color: rgb(37, 82, 103);
+    }
+
+    .form_social-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+      padding: 1rem;
+      background-color: var(--text-color);
+      color: #fff;
+      font-size: 1.75rem;
+      border-radius: 20%;
+    }
+
+    .form_social-icon:hover {
+      background-color: var(--first-color);
+    }
+  </style>
+</head>
+
+<body>
+  <section id="navbar">
+    <nav>
+      <div class="website-logo">
+        <a href="./index.html"><img src="images/Quicktyper.jpeg" alt="img" /></a>
+      </div>
+      <div class="nav-pages">
+        <ul>
+          <li>Pit shops</li>
+          <li><a href="./update.html"> Updates</a></li>
+          <li>Discord</li>
+          <li><a href="./about.html">About</a></li>
+          <li>Merch</li>
+        </ul>
+      </div>
+
+      <div class="nav-buttons">
+        <div class="nav_button_img">
+          <img src="images/navimage.svg" alt="img" />
         </div>
-        <div class="nav-pages">
+        <div class="nav_btn_div">
+          <a href="./signup.html"><button class="nav-btn">CREATE ACCOUNT</button></a>
+          <a href="./login.html"><button class="nav-btn" id="loginText">LOGIN</button></a>
+          <button class="nav-btn">0 WPM</button>
+          <button class="nav-btn">0 RACES</button>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- Navbar End -->
+
+  <form action="" id="form">
+    <p>Create an Account</p>
+    name: <input type="text" id="name" /> email:<input type="email" id="email" />
+    username: <input type="text" id="username" /> password:
+    <input type="password" id="password" /> conformpassword:
+    <input type="password" id="conformpassword" />
+
+    <div class="form_social">
+      <span class="form_social-text"><a href="./login.html">Login Page</a></span>
+      <a href="#" class="form_social-icon"><i class='bx bxl-google'></i></a>
+      <a href="#" class="form_social-icon"><i class='bx bxl-facebook'></i></a>
+      <a href="#" class="form_social-icon"><i class='bx bxl-twitter'></i></a>
+    </div>
+    <button id="submit">Submit</button>
+
+  </form>
+
+
+  <!-- Footer start -->
+  <section id="footer-sec">
+    <footer>
+      <div class="foo1">
+        <div class="terms">
           <ul>
-            <li>Pit shops</li>
-            <li><a href="./update.html"> Updates</a></li>
-            <li>Discord</li>
-            <li><a href="./about.html">About</a></li>
-            <li>Merch</li>
+            <li>Home |</li>
+            <li>Terms of Service |</li>
+            <li>Privacy Policy |</li>
+            <li>Contact |</li>
+            <li>Contribute |</li>
+            <li>Keyboard Shortcut |</li>
+            <li>FAQ</li>
           </ul>
         </div>
-
-        <div class="nav-buttons">
-          <div class="nav_button_img">
-            <img src="images/navimage.svg" alt="img" />
-          </div>
-          <div class="nav_btn_div">
-            <a href="./signup.html"
-              ><button class="nav-btn">CREATE ACCOUNT</button></a
-            >
-            <a href="./login.html"
-              ><button class="nav-btn" id="loginText">LOGIN</button></a
-            >
-            <button class="nav-btn">0 WPM</button>
-            <button class="nav-btn">0 RACES</button>
-          </div>
+        <div class="inc">
+          <p>© 2008-2023 Addicting Games, Inc.</p>
         </div>
-      </nav>
-    </section>
-    <!-- Navbar End -->
+        <div class="social-med">
+          <img src="images/d1.svg" alt="d1" />
+          <img src="images/d2.svg" alt="d2" />
+          <img src="images/d3.svg" alt="d3" />
+          <img src="images/d4.svg" alt="d4" />
+          <img src="images/d5.svg" alt="d5" />
+        </div>
+      </div>
+      <div class="foo2">
+        <div class="ft-btn">
+          <button class="btn4">Change Theme</button>
+        </div>
+        <div class="add-gm">
+          <img src="images/add-game.png" alt="" />
+        </div>
+      </div>
+    </footer>
+</body>
 
-    <form action="" id="form">
-      <p>Create an Account</p>
-      name: <input type="text" id="name" /> email:<input
-        type="email"
-        id="email"
-      />
-      username: <input type="text" id="username" /> password:
-      <input type="password" id="password" /> conformpassword:
-      <input type="password" id="conformpassword" />
+<script>
+  // let signUpForm = document.getElementById("submit");
 
-      <button id="submit">Submit</button>
-    </form>
-  </body>
+  // signUpForm.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   const payload = {
+  //     name: document.getElementById("name").value,
+  //     email: document.getElementById("email").value,
+  //     username: document.getElementById("username").value,
+  //     password: document.getElementById("password").value,
+  //     conformpassword: document.getElementById("conformpassword").value,
+  //   };
+  //   console.log("payll", payload);
+  //   fetch("https://rural-snails-2863.up.railway.app/user/signup", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(payload),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       // console.log(res)
+  //       //alert("User Register Successfully");
 
-  <script>
-    let signUpForm = document.getElementById("submit");
+  //       if(res){
+  //         Swal.fire(
+  //         "User Register Successfully",
+  //         '',
+  //         'success'
+  //         )
+  //       window.location.href = "login.html";
+  //       }else{
+  //         Swal.fire(
+  //         "Fill correct details",
+  //         '',
+  //         'error'
+  //         )
 
-    signUpForm.addEventListener("click", (e) => {
-      e.preventDefault();
-      const payload = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        username: document.getElementById("username").value,
-        password: document.getElementById("password").value,
-        conformpassword: document.getElementById("conformpassword").value,
-      };
-      console.log("payll", payload);
-      fetch("http://localhost:8080/user/signup", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          // console.log(res)
-          alert("User Register Successfully");
-          window.location.href = "login.html";
-        })
-        .catch((err) => console.log(err));
-    });
 
-    let loginText = document.getElementById("loginText");
-    if (localStorage.getItem("userName") === "") {
-      loginText.textContent = "LOGIN";
-    } else {
-      loginText.textContent = localStorage.getItem("userName", username);
-      loginText.style.color = "white";
-      loginText.style.fontWeight = "900";
-      loginText.style.backgroundColor = "green";
-      loginText.textContent = loginText.textContent.toUpperCase();
+  //       }
+
+  //     })
+  //     .catch((err) =>
+
+  //     Swal.fire(
+  //         "Fill correct details",
+  //         '',
+  //         'error'
+  //         )
+
+  //     )
+  // });
+
+  // let loginText = document.getElementById("loginText");
+  // if (localStorage.getItem("userName") === "") {
+  //   loginText.textContent = "LOGIN";
+  // } else {
+  //   loginText.textContent = localStorage.getItem("userName", username);
+  //   loginText.style.color = "white";
+  //   loginText.style.fontWeight = "900";
+  //   loginText.style.backgroundColor = "green";
+  //   loginText.textContent = loginText.textContent.toUpperCase();
+  // }
+
+
+
+
+
+  let form = document.querySelector("#form")
+
+  const URL = "https://rural-snails-2863.up.railway.app"
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      username: form.username.value,
+      password: form.password.value,
+      conformpassword: form.conformpassword.value
     }
-  </script>
+    console.log(payload)
+
+    const request = await fetch(`${URL}/user/signup`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          Swal.fire(
+            data.msg,
+            '',
+            'success'
+          )
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 2500)
+
+        }
+      })
+      .catch((err) =>
+
+        Swal.fire(
+          "Invalid Credentials",
+          '',
+          'error'
+        ))
+  })
+
+
+
+</script>
+
 </html>
