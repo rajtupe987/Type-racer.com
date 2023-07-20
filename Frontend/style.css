@@ -48,6 +48,11 @@ nav {
     cursor: pointer;
 }
 
+
+#racer_img{
+    height: 300px;
+    width: 100%;
+}
 #navbar {
     width: 100%;
     background-color: #005894;
@@ -221,6 +226,7 @@ nav {
 /* ----------------------------- */
 
 .submain {
+    height: 500px;
     width: 100%;
     margin: auto;
     /* height: 1020px;  */
@@ -748,82 +754,6 @@ input {
     /* height: 100%; */
 }
 
-
-/* ---------------------------footer------------------------ */
-
-
-footer {
-    background-color: #394F8A;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 30px;
-}
-
-footer ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-footer ul li {
-    margin-bottom: 10px;
-}
-
-footer hr {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-footer form .form-control {
-    width: 200px;
-}
-
-footer .list-inline li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-footer .fab {
-    color: white;
-    transition: all 0.3s ease-in-out;
-}
-
-footer .fab:hover {
-    transform: scale(1.2);
-}
-
-footer button.btn-primary {
-    background-color: #2b93ee;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    margin-top: 5px;
-    margin-left: 10px;
-}
-
-footer button.btn-primary:hover {
-    background-color: #136a04;
-    color: #ffffff;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-}
-
-.form-control::placeholder {
-    padding: 10px;
-    font-size: 16px;
-}
-
 /* --------------------------------------------------------- */
 #create {
     position: relative;
@@ -1232,7 +1162,7 @@ a {
     width: 100%;
     height: 200px;
     background-color: #005894;
-    margin-top: 25px;
+
   }
   footer {
     display: flex;
