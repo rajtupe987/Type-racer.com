@@ -2,16 +2,16 @@ const users = [];
 
 function User(id, username, roomvalue) {
 
-  let vp = true;
+  let vice_pre = true;
   users.filter((Element) => {
     if (Element.username == username) {
-        vp = false;
+      vice_pre = false;
     }
   });
 
 
   const user = { id, username, roomvalue, userSet: new Set() };
-  if(vp == true){
+  if(vice_pre == true){
     users.push(user);
     return user;
   }else{
@@ -21,19 +21,21 @@ function User(id, username, roomvalue) {
 }
 
 function update_word_function(socketID, typedText) {
-  let one_user = users.filter((el, ind) => {
+  let single_user = users.filter((el, ind) => {
+
     if (el.id == socketID) {
       if (!el.userSet.has(typedText)) {
         el.userSet.add(typedText);
         el.wordCount = el.userSet.size;
       }
       return el;
+      
     }
   });
 
   // console.log(one_user);
   // console.log(users);
-  return one_user;
+  return single_user;
 }
 
 // console.log(one_user);
