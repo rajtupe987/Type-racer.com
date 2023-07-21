@@ -242,7 +242,6 @@
     let datahereall = document.getElementById("datahereall");
     let gamestarthere = document.getElementById("gamestarthere");
     let kingname2323 = document.getElementById("kingname2323");
-    let rightside2 = document.getElementById("rightside2");
     let raceagainbtnclass = document.querySelector(".raceagainbtnclass")
 
 
@@ -313,7 +312,6 @@
         datahereall.style.display = "none";
         carinsideit.style.height = "70px";
         gamestarthere.style.display = "block";
-        rightside2.style.height = "1300px"
         gamestarthere.style.height = "470px"
     });
 
@@ -407,8 +405,8 @@
         socket.emit("joinroom", { username, roomvalue });
     }
     let smokkergdin = document.getElementById("smokkergdin");
-    socket.on("message", (message) => {
 
+    socket.on("message", (message) => {
 
         smokkergdin.innerHTML = ` <div class="divheadclass"><h1 id="classhead">${message}</h1></div>`;
         upperdiv.style.display = "none";
@@ -416,7 +414,6 @@
         kingname2323.style.display = "none";
         datahereall.style.display = "none";
         gamestarthere.style.display = "block";
-        rightside2.style.height = "1300px"
         donedone = true;
     });
 
@@ -476,20 +473,23 @@
         }
     );
 
+    let dummyadd=[]
     socket.on("usersarray", (data) => {
         carinsideit.innerHTML = "";
         // raceagainbtnclass.addEventListener("click",()=>{
         //     handletimer()
         // })
+        dummyadd.push(data)
 
-        data.forEach((element) => {
+        dummyadd.forEach((element) => {
             console.log(element);
             carinsideit.innerHTML += `<div class="car">
                 <span id= onlyvp${element.id} class="usernamehere">${element.username}</span>
                 <img id=${element.id} src="https://tse4.mm.bing.net/th?id=OIP.oO33SYyCF2T5A8i1He_DKAHaCQ&pid=Api&P=0"
                             width="100"> <hr> <span class="speedherena" id=speed${element.id}></span></div>`
         })
-        console.log(data);
+        console.log(data)
+        console.log(typeof(data));
     })
     //getting the user data here
     let startTime = null;

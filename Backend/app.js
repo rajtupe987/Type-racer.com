@@ -4,7 +4,7 @@ const app = express();
 const socketio = require("socket.io");
 let { connection } = require("./Database/db");
 
-
+const {Auth_route}=require("./Controller/oath")
 var randomId = require("random-id");
 const { User, update_word_function } = require("./user");
 let { users } = require("./user");
@@ -20,8 +20,10 @@ app.get("/",(req,res)=>{
   res.send("WELCOME")
 })
 
-app.use("/user", router);
 
+
+app.use("/user", router);
+app.use("/outh",Auth_route)
 
 // length of the id (default is 30)
 var len = 10;
