@@ -125,6 +125,7 @@ let para = [
   "I and my sister dont see each other anymore.",
 ];
 
+
 //on connect
 let count = 0;
 let totalWords = 0;
