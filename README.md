@@ -1,5 +1,5 @@
 # TypeRacer Clone 
-<a href="http://localhost:8080/api-docs/"></a>
+<a href="http://localhost:8080/api-docs/">click here to see documentation</a>
 <hr>
     <h3>Quick Type Racer Website</h3>
     <p>Quick type is an gaming website where an which user can crate a room an test his/her own typing speed.</p>
