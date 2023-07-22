@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="index.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>Sign Up</title>
   <style>
     body {
@@ -118,10 +119,9 @@
 
   <form action="" id="form">
     <p>Create an Account</p>
-    name: <input type="text" id="name" /> email:<input type="email" id="email" />
-    username: <input type="text" id="username" /> password:
-    <input type="password" id="password" /> conformpassword:
-    <input type="password" id="conformpassword" />
+     name: <input type="text" id="name" /> email:<input type="email" id="email" />
+     password:<input type="password" id="password" />
+     conformpassword:<input type="password" id="conformpassword" />
 
     <div class="form_social">
       <span class="form_social-text"><a href="./login.html">Login Page</a></span>
@@ -172,88 +172,20 @@
 </body>
 
 <script>
-  // let signUpForm = document.getElementById("submit");
-
-  // signUpForm.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //   const payload = {
-  //     name: document.getElementById("name").value,
-  //     email: document.getElementById("email").value,
-  //     username: document.getElementById("username").value,
-  //     password: document.getElementById("password").value,
-  //     conformpassword: document.getElementById("conformpassword").value,
-  //   };
-  //   console.log("payll", payload);
-  //   fetch("https://rural-snails-2863.up.railway.app/user/signup", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(payload),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       // console.log(res)
-  //       //alert("User Register Successfully");
-
-  //       if(res){
-  //         Swal.fire(
-  //         "User Register Successfully",
-  //         '',
-  //         'success'
-  //         )
-  //       window.location.href = "login.html";
-  //       }else{
-  //         Swal.fire(
-  //         "Fill correct details",
-  //         '',
-  //         'error'
-  //         )
-
-
-  //       }
-
-  //     })
-  //     .catch((err) =>
-
-  //     Swal.fire(
-  //         "Fill correct details",
-  //         '',
-  //         'error'
-  //         )
-
-  //     )
-  // });
-
-  // let loginText = document.getElementById("loginText");
-  // if (localStorage.getItem("userName") === "") {
-  //   loginText.textContent = "LOGIN";
-  // } else {
-  //   loginText.textContent = localStorage.getItem("userName", username);
-  //   loginText.style.color = "white";
-  //   loginText.style.fontWeight = "900";
-  //   loginText.style.backgroundColor = "green";
-  //   loginText.textContent = loginText.textContent.toUpperCase();
-  // }
-
-
-
-
 
   let form = document.querySelector("#form")
 
-  const URL = "https://rural-snails-2863.up.railway.app"
+  //const URL = "https://rural-snails-2863.up.railway.app";
+  const URL="http://localhost:8080"
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const payload = {
       name: form.name.value,
       email: form.email.value,
-      username: form.username.value,
       password: form.password.value,
       conformpassword: form.conformpassword.value
     }
-    console.log(payload)
 
     const request = await fetch(`${URL}/user/signup`, {
       method: "POST",
@@ -271,6 +203,7 @@
             'success'
           )
           setTimeout(() => {
+            localStorage.setItem("userName",data.userName)
             window.location.href = "login.html";
           }, 2500)
 

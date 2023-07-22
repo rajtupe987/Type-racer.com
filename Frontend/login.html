@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="index.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>Login</title>
   <style>
     body {
@@ -103,7 +104,7 @@
   <!-- Navbar End -->
   <form action="" id="form">
     <p>Sign-in</p>
-    username: <input type="text" id="username" />
+    email: <input type="text" id="email" />
 
     password: <input type="password" id="password" />
     <br />
@@ -112,6 +113,11 @@
 
     <button id="login_Submit">Submit</button>
     <button id="logoutBtn">Logout</button>
+    <div>
+      <a href="#" class="form_social-icon"><i class='bx bxl-google' id="google"></i></a>
+      <a href="#" class="form_social-icon"><i class='bx bxl-facebook'></i></a>
+      <a href="#" class="form_social-icon"><i class='bx bxl-twitter'></i></a>
+    </div>
   </form>
 
 
@@ -156,10 +162,10 @@
 <script>
   // ......................button .........................
   let loginText = document.getElementById("loginText");
-  if (localStorage.getItem("userName") === "") {
+  if (localStorage.getItem("userName") === null) {
     loginText.textContent = "LOGIN";
   } else {
-    loginText.textContent = localStorage.getItem("userName", username);
+    loginText.textContent = localStorage.getItem("userName", email);
     loginText.style.color = "white";
     loginText.style.fontWeight = "900";
     loginText.style.backgroundColor = "green";
@@ -172,11 +178,12 @@
   login_Submit.addEventListener("click", (e) => {
     e.preventDefault();
     let payload = {
-      username: document.getElementById("username").value,
+      email: document.getElementById("email").value,
       password: document.getElementById("password").value,
     };
-
-    fetch("https://rural-snails-2863.up.railway.app/user/login", {
+    //const URL="localhost:8080"
+    // https://rural-snails-2863.up.railway.app
+    fetch("http://localhost:8080/user/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -188,9 +195,10 @@
         let tokenData = res.token.split(".")[1];
         let decodedTokenData = atob(tokenData);
         let userData = JSON.parse(decodedTokenData);
-        console.log(userData)
-        localStorage.setItem("userName", userData.username);
-
+        localStorage.setItem("userName", res.userName);
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("approved", res.approved);
+        localStorage.setItem("id", res.id);
         if (res) {
           Swal.fire(
             "User login Successfully",
@@ -222,7 +230,7 @@
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    fetch("https://rural-snails-2863.up.railway.app/user/logout", {
+    fetch("http://localhost:8080/user/logout", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -230,8 +238,13 @@
     })
       .then((res) => res.json())
       .then((res) => {
-        localStorage.setItem("userName", "");
+
         //alert("Logout Successful, Please login");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("token");
+        localStorage.removeItem("approved");
+        localStorage.removeItem("id");
+        loginText.textContent = "LOGIN";
         if (res) {
           setTimeout(() => {
             window.location.href = "index.html";
@@ -255,4 +268,15 @@
 
       );
   });
+
+
+  const google = document.getElementById("google");
+
+
+  google.addEventListener("click", () => {
+
+    window.location.href = "http://localhost:8080/auth/google"
+  })
+
+
 </script>

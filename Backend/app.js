@@ -4,10 +4,11 @@ const app = express();
 const socketio = require("socket.io");
 let { connection } = require("./Database/db");
 
-
+const {Auth_route}=require("./Controller/oath")
 var randomId = require("random-id");
 const { User, update_word_function } = require("./user");
-let { users } = require("./user");
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 let cors = require("cors");
 
 let { router } = require("./Controller/user.rout");
@@ -17,11 +18,84 @@ app.use(express.json());
 require("dotenv").config();
 
 app.get("/",(req,res)=>{
-  res.send("WELCOME")
+  // res.send("WELCOME")
+  res.redirect('https://lambent-selkie-8d4f00.netlify.app/');
 })
 
-app.use("/user", router);
 
+
+
+// swagger part
+/**
+* @swagger
+* components:
+*   schemas:
+*       user:
+*           type: object
+*           required:
+*              - name
+*              - email
+*              - password
+*           properties:
+*               name:
+*                   type: string
+*                   description: username of the user
+*               email:
+*                   type: string
+*                   description: The user email
+*               password:
+*                   type: string
+*                   description: The user password
+* 
+*/
+/**
+* @swagger
+* components:
+*   schemas:
+*       blacklistedtoken:
+*           type: object
+*           properties:
+*               accessToken:
+*                   type: string
+*                   description: accessToken of the user
+*               refreshToken:
+*                   type: string
+*                   description: refreshToken of the user
+*               
+*/
+
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Node.js TypeRacer project ',
+      version: '1.0.0',
+      description:
+        "About : - This is an type racer application where you can check your typing speed like playing game.",
+      license: {
+        name: "TypeRacer"
+      },
+      contact: {
+        name: "TypeRacer",
+        url: "TypeRacer.com",
+        email: "rajtupe@gmail.com",
+      },
+    },
+    servers: [
+      {
+        url: 'http://localhost:8080/'
+      }
+    ]
+  },
+  apis: ['./app.js']
+}
+
+const swaggerData = swaggerJSDoc(options)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerData))
+
+
+app.use("/user", router);
+app.use("/auth",Auth_route)
 
 // length of the id (default is 30)
 var len = 10;
@@ -52,6 +126,7 @@ let para = [
   "Tomorrow early morning first I go to morning walk.",
   "I and my sister dont see each other anymore.",
 ];
+
 
 //on connect
 let count = 0;
@@ -133,6 +208,7 @@ io.on("connection", (socket) => {
       });
     }
   });
+  
   //disconnet
   socket.on("disconnect", () => {
     count -= 1;

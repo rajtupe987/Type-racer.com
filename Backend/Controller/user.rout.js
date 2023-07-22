@@ -14,15 +14,12 @@ require("dotenv").config();
 
 router.post("/signup",async(req,res)=>{
     try {
-        const {name,email,username,password,conformpassword}=req.body
+        const {name,email,password,conformpassword}=req.body
         if(!name){
             return res.status(400).send({"ok": false,"msg":"name is required"})
         }
         if(!email){
             return res.status(400).send({"ok": false,"msg":"email is required"})
-        }
-        if(!username){
-            return res.status(400).send({"ok": false,"msg":"username is required"})
         }
         if(!password){
             return res.status(400).send({"ok": false,"msg":"password is required"})
@@ -42,37 +39,48 @@ router.post("/signup",async(req,res)=>{
                 console.log("bcrypt",error)
                 return res.status(500).send({"ok": false,"msg":"something went wrong"})  
             }
-            const user= new userModel({name,email,username,password:hash})
+            const user= new userModel({name,email,password:hash})
              await user.save()
              res.status(200).send({"ok": true,"msg":"register seccessfully"})
         })  
     } catch (error) {
         console.log(error)
-        res.status(500).send({"ok": false,"msg":"something went wrong "})
+       // res.status(500).send({"ok": false,"msg":"something went wrong "})
     }
+
+
 })
 
 // ********************* login *************************
 router.post("/login",async(req,res)=>{
-    const {username,password}=req.body
-    console.log(username,password)
+    const {email,password}=req.body
+    
     try {
-        if(!username){
-            return res.status(400).send({"ok": false,"msg":"put username"})
+        if(!email){
+            return res.status(400).send({"ok": false,"msg":"put email"})
         }
         if(!password){
             return res.status(400).send({"ok": false,"msg":"put password"})
         }
-        const user=await userModel.findOne({username})
+        const user=await userModel.findOne({email})
         //console.log(user)
         if(user){
             bcrypt.compare(password,user.password,(error,result)=>{
                if(result){
-                const accesstoken=jwt.sign({username},process.env.secrete_key,{expiresIn:"6h"})
-                const refreshtoken=jwt.sign({username},process.env.ref_key,{expiresIn:"24h"})
-                res.cookie("accessToken",accesstoken,{maxAge:7*24*60*60*1000})
+                const token=jwt.sign({email},process.env.secrete_key,{expiresIn:"6h"})
+                const refreshtoken=jwt.sign({email},process.env.ref_key,{expiresIn:"24h"})
+                res.cookie("token",token,{maxAge:7*24*60*60*1000})
                 res.cookie("refreshToken",refreshtoken,{maxAge:7*24*60*60*1000})
-                res.status(200).send({"ok": true,"msg":"login syccessfull","token":accesstoken})
+
+
+                const response = {
+                    "approved": true,
+                    "token": token,
+                    "msg": "Login Successfull",
+                    "id": user._id,
+                    "userName": user.name
+                  }
+                  res.status(200).json(response)
                }else{
                 return res.status(400).send({"ok": false,"msg":"wrong password"})
                } 
@@ -81,7 +89,6 @@ router.post("/login",async(req,res)=>{
             return res.status(400).send({"ok": false,"msg":"put correct email id"})
         }
     } catch (error) {
-        //console.log(error)
         res.status(400).send({"ok": false,"msg":"something went wrong"})
     }
 })
@@ -95,7 +102,7 @@ router.get("/refreshtoken",async(req,res)=>{
         if(isblacklist) return res.status(400).send({msg:"Please login"})
         if(refreshtoken){
             const isvalid=jwt.verify(refreshtoken,process.env.ref_key)
-            //console.log(isvalid)
+           
             if(isvalid){
             const newaccesstoken=jwt.sign({email:isvalid.email},process.env.secrete_key,{expiresIn:"6h"})
             res.cookie("accessToken",newaccesstoken,{maxAge:7*24*60*60*1000})
@@ -105,7 +112,7 @@ router.get("/refreshtoken",async(req,res)=>{
             res.status(400).send({"ok": false,"msg":"please login"})
         }
     } catch (error) {
-        //console.log(error)
+        
         return res.send({"ok": false,"msg":error.message})
     }
    
@@ -116,7 +123,6 @@ router.get("/refreshtoken",async(req,res)=>{
 
 router.get("/logout",authenticate,async(req,res)=>{
     const {accessToken,refreshToken}=req.cookies
-   // console.log(accessToken,refreshToken)
     const Baccesstoken= new blacklistModel({accessToken})
     await Baccesstoken.save()
     const Brefreshtoken= new blacklistModel({refreshToken})

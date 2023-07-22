@@ -179,7 +179,7 @@
 
   <script>
     let loginText = document.getElementById("loginText");
-    if (localStorage.getItem("userName") === "") {
+    if (localStorage.getItem("userName") === null) {
       loginText.textContent = "LOGIN";
     } else {
       loginText.textContent = localStorage.getItem("userName");
@@ -189,5 +189,26 @@
       loginText.style.backgroundColor = "green";
       loginText.textContent = loginText.textContent.toUpperCase();
     }
+
+
+
+    const token = localStorage.getItem('token');
+const id = localStorage.getItem('id');
+const approved = localStorage.getItem('approved');
+const userName = localStorage.getItem("userName");
+
+// localStorage.setItem("token",token);
+// localStorage.setItem("id",id);
+// localStorage.setItem("userName", userName);
+
+// localStorage.setItem("approved",approved);
+
+
+if(approved == true){
+  setTimeout(()=>{
+    window.location.href = "app.html"
+  },1000)
+    
+} 
   </script>
 </html>
