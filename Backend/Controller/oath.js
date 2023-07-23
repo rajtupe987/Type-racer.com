@@ -24,16 +24,32 @@ Auth_route.get(
         session: false
     }),
     function (req, res) {
-        let user = req.user;
-        const token = jwt.sign({ userId: user._id }, process.env.secrete_key, { expiresIn: '1hr' })
 
-        res.redirect(`http://localhost:8080/?id=${user._id}&token=${token}&approved=${user.approved}&username=${user.userName}`)
+
+        try {
+            let user = req.user;
+        
+        const token = jwt.sign({ userId: user._id }, process.env.secrete_key, { expiresIn: '1hr' })
+      
+        //rural-snails-2863.up.railway.app
+        //http://localhost:8080
+        res.redirect(`https://reacertyper.netlify.app/?id=${user._id}&token=${token}&approved=${user.approved}&username=${user.userName}`)
+        } catch (error) {
+            res.send({"mag":error.message})
+        }
+        
     }
 );
 
 // if suppose it OAuth fails 
 Auth_route.get("/google/failure", (req, res) => {
-    res.redirect("https://lambent-selkie-8d4f00.netlify.app/login.html")
+    try {
+        res.redirect("https://reacertyper.netlify.app/login.html")
+    } catch (error) {
+        console.log("error in google oauth")
+        res.send({"msg":error.message})
+    }
+    
 })
 
 
@@ -44,7 +60,7 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: "http://localhost:8080/auth/google/callback",
+            callbackURL: "https://rural-snails-2863.up.railway.app/auth/google/callback",
             passReqToCallback: true
         },
         async function (request, accessToken, refreshToken, profile, cb) {

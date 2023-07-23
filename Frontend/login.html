@@ -68,6 +68,20 @@
       color: var(--first-color);
       transition: 0.5s;
     }
+
+    #oauth_icon{
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+
+    }
+    #oauth_icon>img{
+      width: 10%;
+      cursor: pointer;
+    }
+    span{
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -113,10 +127,11 @@
 
     <button id="login_Submit">Submit</button>
     <button id="logoutBtn">Logout</button>
-    <div>
-      <a href="#" class="form_social-icon"><i class='bx bxl-google' id="google"></i></a>
-      <a href="#" class="form_social-icon"><i class='bx bxl-facebook'></i></a>
-      <a href="#" class="form_social-icon"><i class='bx bxl-twitter'></i></a>
+    <span>Login with google or facebook</span>
+    <div id="oauth_icon">
+     
+      <img id="google_icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAMAAAC93eDPAAABEVBMVEX////lQzU0o1NCgO/2twTq7/3V4fs7fu8icu72tADkOirkPS71sQAtoU4anUPjMB3jJQvkNiX3v0A0eu4ln0n3+/j0urfwop3vlY/reXH1v7z76Of40c/jLBf99vXoX1Xzsa3nUkXsgHn++vH97dH62ZP3+f774q33uyT4w1L4yFr50Xz+892ivPZ8voygz6sAmDZgs3XW6tuQx5363tzpb2ftiYHpZ13wmTf85rr0rR/oXDvkODXrdDfvjSryoiTsgDP74cC+0PiFqvRmlvJMiPDz58OSrkZkq1bQtziqs0eTs/V7rlXbuDNOqFa8tkKx2b1Mq2Rkqaw6oHRKieNGjNFDlq45nXxFlLs9m441oGSom9JxAAAEIUlEQVR4nO2XeXuaMByAQ2S1YLkKKG3Fa5vrLlR0uvvo1t2H7t6+/wcZIlUIUWMIbM+zvP8KT15/ZwCAw+FwOBwOh8PhcP4rRtWa0zkKGDu141Hhpx93BF3XDLkyR5YNTdfb4+OTos4/aTUFQxZQKoYh3CnEot4RtErq/AsNt+3kLVGf6On/n8DQxnlK1Cfu2gCskF2nkZNAw5G3RGAZifZxLgajpkYmEFDRnBwMaiQ5WKG1WVdEo0MegigQQp2twdGuBoGDzHJiNprGzgaC1mJp0CbshDg6y6ZoTCgM3CpDAzDevQ4Eo8XSoLbOoCK7uu4a8y2pIXFymRrUXfz5hjtxoltCY1Qdt+O7Q2eahYaAm0gVrVk7SSyCxqgjXLQN014AwMG1oyFUMYtoNF5sca3G1ACXhoq77oxROxDWW0wNQDOdBmPT9HdctnUAQDWdBuNo42WgxTYLANxNGWgdxkds4Z54/8HDZAwKNgDXRVF8FHeQJwUb3DoIFMTHsV5gfg/Zxk1priA+WSow3X4kXD4UI6KCMMYFG4Ar0oWC+DR00IpOA7i6UgiTIedxK97MoRjjfvuhUXgQLp+KCR7dKdogXgoh0jPsY91LJHSpFK4hCqe3sI9d2i9txzyjUriKKFzHP0amcJtK4UZSQbqZReE5lcJhUuHgWgaF8gsqBaQhDq5kUTinUhARBXw1kimUSlQKEksF8+8rlKkUmCaCToFlOVIm4hBRyNKUlOXIcjRRNiXLAU05mpiuKboB/RLtypdrFMoYUAW6NYVcWaRXHvax7h6OF0kJymWdaAnp9LVi2cSvds+RWtijU4jVo/TmI4TWkPjVPTOpcE53a4rd3KS3cA55GN4lFSgbYvUpI0nv4UKBNAxdpBwpqxFcfNBJHz7CiL5P9uJtJA8mZSkEmZh/1kqf4BJlRpQKNAhl2lIAi554BWNYA5LXnqNBeEdtAO4dnL6GCVT8cEhwhhiU9qnzEPAJoqhbSzJlQN0PIVMr5WB5m+shZUA9GiNmStphtqkv0GYo0d6YlvhqSgEqVm/t45/30Q2VNQgADNOpmAdiihXwVPXLVyQMWTpygQ3TqQgCoQ6mSEnYvgcDXQt+M9kGAZ+KUMIa9PyFhm37PQ+qSvTD97gD5WUlSQ/vMK8Jta+Gh/ZVKxYr9UdpJWFmTUOIt85hHbFkMEjDHHuAK8lNKPCnmXk0Jx2wJbkR9ZdZZlQIkcNs1zhA6/dX08w0mVGHneshKIifLA2oHFSPSTPE6Km7FUR/7RSnxx/sEAgLEt7xdsMeKoSBULZtdHqCQJBIWBC7xQqTUFSYQxUkJZYLCRsAK7VC88CezqCFsVAsZTb0CxAI8ace7KvBfowIdmZfGUxz6YIN2P60N/RChr1pYf+ew+FwOBwOh8PhcP4F/gCe+G1HV8v3nQAAAABJRU5ErkJggg==" alt="">
+      <img id="facebook_icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAB+CAMAAADV/VW6AAAAflBMVEUAN8H///8AGbz6+/0LQMQbTMgVR8YHPMMRRMUCOcEAJL4eT8gANMC4wOgnVsoYSscAKb8AMcA2T8YAALnHyut+itVDWMgkU8ru8PnAw+ja3PJ1gdPz9fuHj9ewt+XV2PFEU8fm6fctXM2Yod6jquBib85oedFWYstZaMwADrvuFHPOAAADqElEQVRoge3b6XqiMBQGYMSwBFIhWlp3ah2n7f3f4CgIZjkJgbJ0nuZ7Zn6NndcsJKFwnNmkcSz/4/h57zHk15vMcweJl23WDfx2h6OUOIOEpBHebTX8/jCYXX+Dw17F52E0pF0mQjnMH1255YQQjIMy2DTFT2KVT9wjxB/FphOCwnjxfs2iyus9cRmvSJJc/yR+kdAPi6AQXRPA3yE6ynzuCnjgL1i5siv5bt/kiq6D6gTgN3Bzkd8jwuMxZ4PN9thmy3ZQDZrc/+Fe4A9c1xMPsGPevjXcb7brycB1/4Hnt6xOwsU7S8evC7HdRZ/zDUcKGxz/aMvxu5TRExaPgT7XjvdNdQqUlIH4dMfya8x8KAbnGtDpoYQHNKIoeePyAjWf4DXDbyJJB+ea95hrvtTugNIwe8pPa2F7eaFQ728YPqv7nsT1gIPjrbJRkNKzsKDr+DRjeK/qe+KprjFowJnxps4f0FbxxGP4asm5znllnysn222Op5eTSod5xwV4B5psiW7Ay4ss3SmOExp+XvPzive6LWz0U4234FEXG2Pia9regvf06xq/lzwWtjTX6cZ8YLiRBfyiSv9qdVOeJHKfa/B6QXfhy70tj5sXNmgzoR/akTfmUbeNLDrrdVPefwy4ZgMXd3C8OvXDqzcy7ekhbdANedx8gUOHB/rRDx+YzjWh8RlozrfP9+RL8MAh8sg3Hm+Oh2be9vMrqgPfN0l864aXPLDRnnCq+rieb2k73D1DnbPBzZo09h3sG/8k8xdwsjXwzdeYKb/syrdpt5pPDO7SZd5kohvxYQced7B75s37vH++g90j73SwFTzqwncLxAfD84TQ4v7VBXhc/hMt/irWgO/x9G1Zxt/I/MuSDeqfxysZVeXT+C5nEN4x2u8H41fgBTUWP5+WP31Nyj/D//lYvPTL2nH5M3zuG4s/TMvv4FV3LP5jUn6uOPiNxO8VZ/6xeHjRG4vfwoveN3k3r+5gTzL5zER1w/W94waunk2ugHu86Ovx7DJSHCD/77Oe5S1vectb3vKWt7zlLW95y1ve8pa3vOUt/+v52S/kZw/eM/h8vzz3omzW/JqPkgceIRs8v+deE950L8qgl0zMwfxbA6+It/VTKc0/xL8izr0gP0b4F+T58oARIpQHCMURg+tCccRsb/KyS1+RS0OkwpghIxfGKJ80DxCoLAguihogiqKosUrCQkVJ2NQFcbOJywFvmbQY8p7+K0EVtaA/sxDW8mPkHyDpet5FGn15AAAAAElFTkSuQmCC" alt="">
     </div>
   </form>
 
@@ -183,7 +198,10 @@
     };
     //const URL="localhost:8080"
     // https://rural-snails-2863.up.railway.app
-    fetch("http://localhost:8080/user/login", {
+    //rural-snails-2863.up.railway.app
+    //http://localhost:8080/user/login
+
+    fetch("https://rural-snails-2863.up.railway.app/user/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -230,7 +248,7 @@
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:8080/user/logout", {
+    fetch("https://rural-snails-2863.up.railway.app/user/logout", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -246,15 +264,15 @@
         localStorage.removeItem("id");
         loginText.textContent = "LOGIN";
         if (res) {
-          setTimeout(() => {
-            window.location.href = "index.html";
-          }, 2000);
 
           Swal.fire(
             "Logout Successful, Please login",
             '',
             'success'
           )
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 2000);
 
         }
 
@@ -270,12 +288,12 @@
   });
 
 
-  const google = document.getElementById("google");
+  const google = document.getElementById("google_icon");
 
 
   google.addEventListener("click", () => {
 
-    window.location.href = "http://localhost:8080/auth/google"
+    window.location.href = "https://rural-snails-2863.up.railway.app/auth/google"
   })
 
 
