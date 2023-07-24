@@ -22,9 +22,6 @@ app.get("/",(req,res)=>{
   res.redirect('https://lambent-selkie-8d4f00.netlify.app/');
 })
 
-
-
-
 // swagger part
 /**
 * @swagger
@@ -258,6 +255,7 @@ app.get("/",(req,res)=>{
  *       500:
  *         description: Internal Server Error - Something went wrong on the server
  */
+
 
 
 const options = {
