@@ -36,7 +36,6 @@
     let roomvalue = urlParams.get("roomvalue");
     let value = urlParams.get("value");
 
-    console.log(username);
     const socket = io("https://rural-snails-2863.up.railway.app/", { transports: ["websocket"] });
 
     if (value == 0) {
@@ -55,7 +54,6 @@
 
     socket.on("message", (message) => {
       window.location.href = "";
-      console.log(message);
     });
   </script>
 </html>
