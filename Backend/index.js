@@ -22,9 +22,6 @@ app.get("/",(req,res)=>{
   res.redirect('https://lambent-selkie-8d4f00.netlify.app/');
 })
 
-
-
-
 // swagger part
 /**
 * @swagger
@@ -260,6 +257,9 @@ app.get("/",(req,res)=>{
  */
 
 
+
+
+
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -333,20 +333,17 @@ io.on("connection", (socket) => {
 
   socket.on("username", ({ username }) => {
     var id = randomId(len, pattern);
-    console.log(id);
     socket.emit("roomno", id);
   });
   let Room;
   socket.on("joinroom", ({ username, roomvalue }) => {
     const users = User(socket.id, username, roomvalue);
-    console.log(roomvalue + "from join room");
-    console.log(socket.id + "from line no 68");
+
     socket.join(roomvalue);
     Room = roomvalue;
     io.emit("usersarray", users);
     socket.emit("message", "WELCOME TO RACE BUDDY 😉");
   });
-  console.log(`One user connected, total user : ${count}`);
 
   socket.on("timeleft", (data) => {
     let { timeleft } = data;
@@ -365,14 +362,12 @@ io.on("connection", (socket) => {
 
   //recieving the typed text from client
   socket.on("typedText", ({ typedText }) => {
-    //console.log(`person having id ${socket.id} is typing :`, typedText);
 
     if (
       typedText[typedText.length - 1] == myParagraph[typedText.length - 1] &&
       includeFunction(myParagraph, typedText)
     ) {
       if (typedText.length == myParagraph.length) {
-        console.log(typedText);
         // users = []
         return socket.emit("typing-update", {
           typedText: "You have finished the race buddy 👏👏👏",
@@ -381,11 +376,9 @@ io.on("connection", (socket) => {
       }
       if (typedText[typedText.length - 1] == " ") {
         let user = update_word_function(socket.id, typedText);
-        //console.log(user);
-        //console.log(user[0]);
+
         io.to(user[0].roomvalue).emit("user_data", user[0]);
       }
-      // console.log({ typedText, keyCode });
       socket.emit("typing-update", {
         typedText,
 
@@ -408,7 +401,6 @@ io.on("connection", (socket) => {
   //disconnet
   socket.on("disconnect", () => {
     count -= 1;
-    //console.log(`One user left, ${count} remaining!!`);
     io.emit("user count", count);
   });
 });

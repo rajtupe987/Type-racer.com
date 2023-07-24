@@ -46,7 +46,6 @@ Auth_route.get("/google/failure", (req, res) => {
     try {
         res.redirect("https://reacertyper.netlify.app/login.html")
     } catch (error) {
-        console.log("error in google oauth")
         res.send({"msg":error.message})
     }
     
